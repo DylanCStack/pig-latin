@@ -18,7 +18,9 @@ $(function() {
       }
 
       for (var i = 0; i < word.length; i++) {
-        if ($.inArray(word[i], vowels) >= 0) {
+        if(word[0]==="y" && i === 0){
+          consonants += "y";
+        } else if ($.inArray(word[i], vowels) >= 0) {
           i = 3000000000;
         } else {
           consonants += word[i]
