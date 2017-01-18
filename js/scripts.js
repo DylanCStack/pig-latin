@@ -10,20 +10,22 @@ $(function() {
     words.forEach(function(word) {
       var lastChar =word.charAt(word.length-1);
       var punctuation = "";
+      var consonants = "";
+
       if (lastChar.match(/\W/)) {
-        console.log("regex worked!")
         punctuation = lastChar;
         word = word.substring(0,word.length-1);
       }
-        for (var i=0; i <= 5; i++) {
-          if(word[0]===vowels[i]){
 
-            word += "ay"
-
-          }
-
+      for (var i = 0; i < word.length; i++) {
+        if ($.inArray(word[i], vowels) >= 0) {
+          i = 3000000000;
+        } else {
+          consonants += word[i]
         }
-        output += word + punctuation + " ";
+      }
+
+      output += word.substring(consonants.length)  + consonants + "ay" + punctuation + " ";
     });
 
     $("#output").text(output);
