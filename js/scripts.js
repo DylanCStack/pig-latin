@@ -22,6 +22,9 @@ $(function() {
           i = 3000000000;
         } else {
           consonants += word[i]
+          if (consonants[i] === "q") {
+            consonants += "u"
+          }
         }
       }
 
